@@ -7,26 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'platzisquare';
-  //binding sencillo
-  a=2;
-  b=6;
-  listo=false;
-  
-  //ngModel es bindeo de datos hacia ambos lados
-  //variable de ejemplo de two bindeo, importar el modulo para que two funcione en app module
-  nombre : string = '';
-  apellido: string = '';
+
+  //arreglo para recorrer por la directiva *ngFor
+  lugares:any = [
+    //variable active es para practica con la directiva *ngIf
+    {active: true,nombre:'floreria'},
+    { active: false,nombre:'veterinaria'},
+    { active: true,nombre:'casita'}
+  ];
 
   constructor(){
-    //setTimeout espera determinado tiempo antes de ejecutar una funcion
-    //event binding
-    setTimeout(()=>{
-      this.listo=true;
-      
-    },3000)
-  }
-  hacerAlgo(){
-    alert('haciendo algo!');
   }
   
 }
