@@ -14,12 +14,12 @@ export class AppComponent {
   //arreglo para recorrer por la directiva *ngFor
   lugares:any = [
     //variable active es para practica con la directiva *ngIf
-    { cercania: 1, distancia: 1,active: true,nombre:'floreria'},
-    { cercania: 1, distancia: 1.8,active: false,nombre:'veterinaria'},
-    { cercania: 2, distancia: 5,active: true,nombre:'casita'},
-    { cercania: 3, distancia: 10,active: true,nombre:'cariceria'},
-    { cercania: 3, distancia: 35,active: false,nombre:'academica'},
-    { cercania: 3, distancia: 120,active: true,nombre:'panaderia'}
+    { plan:'gratuito',cercania: 1, distancia: 1,active: true,nombre:'floreria'},
+    { plan:'gratuito',cercania: 1, distancia: 1.8,active: false,nombre:'veterinaria'},
+    { plan:'pagado',cercania: 2, distancia: 5,active: true,nombre:'casita'},
+    { plan:'gratuito',cercania: 3, distancia: 10,active: true,nombre:'carniceria'},
+    { plan:'gratuito',cercania: 3, distancia: 35,active: false,nombre:'academica'},
+    { plan:'pagado',cercania: 3, distancia: 120,active: true,nombre:'panaderia'}
   ];
 
   constructor(){

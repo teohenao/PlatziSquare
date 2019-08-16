@@ -4,10 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { ResaltarDirectiva } from './directivas/resaltar.directiva';
 
 
 @NgModule({
   declarations: [
+    //declaramos las directivas creadas para poder utilizarlas, ResaltarDirectiva
+    ResaltarDirectiva,
     AppComponent
   ],
   imports: [
