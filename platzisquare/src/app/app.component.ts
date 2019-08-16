@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'platzisquare';
+  //variables para trabajar con map
+  lat:number=4.6455897;
+  lng:number=-75.6017297;
 
   //arreglo para recorrer por la directiva *ngFor
   lugares:any = [
