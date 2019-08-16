@@ -5,12 +5,15 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ResaltarDirectiva } from './directivas/resaltar.directiva';
+import { ContarClicksDirectiva } from './directivas/contar-clicks.directiva';
 
 
 @NgModule({
   declarations: [
     //declaramos las directivas creadas para poder utilizarlas, ResaltarDirectiva
     ResaltarDirectiva,
+    //declaramos directiva de clicks 
+    ContarClicksDirectiva,
     AppComponent
   ],
   imports: [
