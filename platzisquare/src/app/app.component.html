@@ -9,5 +9,13 @@
           {{lugar.nombre}}
         </li>
   </ng-container>
-
+</ul>
+<ul>
+    <ng-container *ngFor="let lugar of lugares; let i = index">
+    
+      <!--ngStyle, variable a modificar, condicion, si se cumple tal si no se cumple tal-->
+        <li [ngStyle]="{color:(lugar.active)?'black':'gray'}" [ngClass]="{'numero-par': (i+1)%2 !==0}">
+            {{lugar.nombre}}
+          </li>
+    </ng-container>
 </ul>

@@ -1,3 +1,7 @@
 agm-map {
   height: 300px;
 }
+.numero-par{
+    background-color: chartreuse;
+    color: blue;
+}
