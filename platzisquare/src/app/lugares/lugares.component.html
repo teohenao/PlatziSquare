@@ -1,23 +1,26 @@
+<h4>Mapa</h4>
 <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
-  <hr />
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <h2>Lugares cercanos</h2>
-          <ul class="list-group">
-              <ng-container *ngFor="let lugar of lugares">
-                  <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
-                  <!--query params para los parametros y le pasa por decir asi un permiso para ver:view, editar:edit-->
-                <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'edit',referer:'google'}"><li class="list-group-item" *ngIf="lugar.active">
-                 id: {{lugar.id}}  lugar: {{lugar.nombre}}
-                </li></a>
-              </ng-container>
-            </ul>
-      </div>
-      <div class="col-md-4">
-        <h2>Destacados</h2>
-      </div>
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Lugares cercanos</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares">
+          <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
+          <!--query params para los parametros y le pasa por decir asi un permiso para ver:view, editar:edit-->
+          <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'edit',referer:'google'}">
+            <li class="list-group-item" *ngIf="lugar.active">
+              id: {{lugar.id}} lugar: {{lugar.nombre}}
+            </li>
+          </a>
+        </ng-container>
+      </ul>
     </div>
+    <div class="col-md-4">
+      <h2>Destacados</h2>
     </div>
+  </div>
+</div>
