@@ -6,14 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ResaltarDirectiva } from './directivas/resaltar.directiva';
 import { ContarClicksDirectiva } from './directivas/contar-clicks.directiva';
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { DetalleComponent } from './detalle/detalle.component';
+import { LugaresComponent } from './lugares/lugares.component';
 
 //rutas de navegacion en angular 
 const appRoutes: Routes = [
   //cuando no hay ningun segmento despues del dominio por defecto abre el componente asignado
-  {path:'',component: AppComponent}
+  {path:'',component: LugaresComponent},
+  {path:'detalle',component: DetalleComponent},
   //para /lugares se carga el componente asignado
-  {path:'/lugares',component: AppComponent}
+  {path:'lugares',component: LugaresComponent}
 ];
 
 
@@ -23,6 +26,8 @@ const appRoutes: Routes = [
     ResaltarDirectiva,
     //declaramos directiva de clicks 
     ContarClicksDirectiva,
+    DetalleComponent,
+    LugaresComponent,
     AppComponent
   ],
   imports: [
@@ -33,6 +38,8 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBu-0snnYFFYBztZsD-cxf03HYQsqU1pRo'
     }),
+    //para que nuestro proyecto funcione con mas de un componente es necesario hacer este import
+    RouterModule.forRoot(appRoutes),
     AppRoutingModule
   ],
   providers: [],
