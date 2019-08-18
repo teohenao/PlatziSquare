@@ -1,16 +1,21 @@
-<div class="well">
-  <a routerLink="/lugares">Regresar</a>/{{lugar.nombre}}
+<div class="card">
+  <div class="card-body">
+    <a routerLink="/lugares">Regresar</a>/{{lugar.nombre}}
+  </div>
 </div>
-<h1>{{lugar.nombre}}</h1>
-<hr>
-<small>{{lugar.distancia}}</small>
-<br />
-<div class="well">
-  <p>
-    {{lugar.descripcion}}
-  </p>
-  <b>
-    {{lugar.plan}}
-  </b>
+<div class="container">
+  <h1>{{lugar.nombre}}</h1>
+  <hr>
+  <small>{{lugar.distancia}}</small>
+  <br />
+  <div class="card">
+    <div class="card-body">
+      <p>
+        {{lugar.descripcion}}
+      </p>
+      <b>
+        {{lugar.plan}}
+      </b>
+    </div>
+  </div>
 </div>
-

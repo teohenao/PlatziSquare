@@ -9,6 +9,7 @@ import { ContarClicksDirectiva } from './directivas/contar-clicks.directiva';
 import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 //rutas de navegacion en angular 
 const appRoutes: Routes = [
@@ -17,7 +18,9 @@ const appRoutes: Routes = [
   //para agregar parametros a la ruta /:id/:action para dos parametros
   {path:'detalle/:id',component: DetalleComponent},
   //para /lugares se carga el componente asignado
-  {path:'lugares',component: LugaresComponent}
+  {path:'lugares',component: LugaresComponent},
+  {path:'contacto',component: ContactoComponent}
+
 ];
 
 
@@ -28,6 +31,7 @@ const appRoutes: Routes = [
     //declaramos directiva de clicks 
     ContarClicksDirectiva,
     DetalleComponent,
+    ContactoComponent,
     LugaresComponent,
     AppComponent
   ],
