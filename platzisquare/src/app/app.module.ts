@@ -14,7 +14,8 @@ import { LugaresComponent } from './lugares/lugares.component';
 const appRoutes: Routes = [
   //cuando no hay ningun segmento despues del dominio por defecto abre el componente asignado
   {path:'',component: LugaresComponent},
-  {path:'detalle',component: DetalleComponent},
+  //para agregar parametros a la ruta /:id/:action para dos parametros
+  {path:'detalle/:id',component: DetalleComponent},
   //para /lugares se carga el componente asignado
   {path:'lugares',component: LugaresComponent}
 ];

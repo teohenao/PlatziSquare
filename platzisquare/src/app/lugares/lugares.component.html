@@ -8,9 +8,10 @@
         <h2>Lugares cercanos</h2>
           <ul class="list-group">
               <ng-container *ngFor="let lugar of lugares">
-                <li class="list-group-item" *ngIf="lugar.active">
-                  {{lugar.nombre}}
-                </li>
+                  <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
+                <a routerLink="detalle/{{lugar.id}}"><li class="list-group-item" *ngIf="lugar.active">
+                 id: {{lugar.id}}  lugar: {{lugar.nombre}}
+                </li></a>
               </ng-container>
             </ul>
       </div>
