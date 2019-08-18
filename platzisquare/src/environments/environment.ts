@@ -2,8 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+//Para instalar firebase en proyecto angular
+// npm install @angular/fire firebase --save
+
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDitLAvqmiXPaHCzhErlyPrC60wBU3H-sE",
+    authDomain: "platzisquare-250000.firebaseapp.com",
+    databaseURL: "https://platzisquare-250000.firebaseio.com",
+    projectId: "platzisquare-250000",
+    storageBucket: "",
+    messagingSenderId: "183008511527",
+    appId: "1:183008511527:web:d0dcd21778ced2fe"
+  }
 };
 
 /*

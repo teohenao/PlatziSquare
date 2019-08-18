@@ -12,6 +12,15 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './servicios/lugares.services';
 
+//imports necesarios para trabajar con firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+
+
 //rutas de navegacion en angular 
 const appRoutes: Routes = [
   //cuando no hay ningun segmento despues del dominio por defecto abre el componente asignado
@@ -46,6 +55,10 @@ const appRoutes: Routes = [
     }),
     //para que nuestro proyecto funcione con mas de un componente es necesario hacer este import
     RouterModule.forRoot(appRoutes),
+    //para que el proyecto se conecte con la base de datos de firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AppRoutingModule
   ],
   //aca se declaran los servicios
