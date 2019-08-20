@@ -6,14 +6,14 @@
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares cercanos</h2>
-      <a class="btn btn-primary" routerLink="crear">Crear Nuevo Negocio</a>
+      <a class="btn btn-primary" routerLink="/crear">Crear Nuevo Negocio</a>
       <!--La diagonal en la ruta /crear es para que tome la raiz y no ocurra el problema de lugares/crear-->
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
           <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
           <!--query params para los parametros y le pasa por decir asi un permiso para ver:view, editar:edit-->
           <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'edit',referer:'google'}">
-            <li class="list-group-item" *ngIf="lugar.active">
+            <li class="list-group-item">
               id: {{lugar.id}} lugar: {{lugar.nombre}}
             </li>
           </a>

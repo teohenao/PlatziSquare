@@ -16,8 +16,15 @@ export class LugaresComponent {
 
   //En el constructor metemos nuestros servicios
   constructor(private lugaresServices: LugaresService){
-    //inicializamos el servicio y lo guardamos en lugares del componente
-    this.lugares = lugaresServices.getLugares();
+    //nos devuelve la promesa de la lista, el vaueChanges es necesario segun versiones, y se subscribe a la respuesta
+    lugaresServices.getLugares().valueChanges()
+    .subscribe( lugares => {
+      //debugger detiene el codigo en esta parte, y podemos mirar colocando el click sobre
+      //el parametro  de la promesa que si nos esta llegando o no la lista
+      //debugger;
+      
+      //lista de lugares es igual al parametro de respuesta a la promesa
+      this.lugares = lugares;
+    });
   }
-  
 }

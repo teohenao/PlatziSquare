@@ -24,7 +24,8 @@ export class LugaresService{
       ];
       //Metodo para obtener el arreglo lugares, buenas practicas
       public getLugares(){
-          return this.lugares;
+          //que nos regrese lo de firebase en una lista
+          return this.afDB.list('lugares/');
       }
       //metodo para obtener el lugar por determinado id, para detalle de un lugar, prametro id, que le pasara en componente
       public buscarLugar(id){
@@ -37,7 +38,8 @@ export class LugaresService{
     //metodo publico para guardar informacion en firebase
     public guardarLugar(lugar){
         console.log(lugar);
-        this.afDB.database.ref('lugares/1').set(lugar);
+        //le concatenamos el id, que generamos en crear.ts
+        this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
     }
     
 }
