@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from '@angular/fire/database';
 
 //para que pueda ser inyectado en otros componentes, u otros componentes puedan ser inyectados en este servicio
 @Injectable()
 export class LugaresService{
+
+    //inyectar modulo de firebase en nuestro servicio, adBD nos permite iteractuar con la base de datos de firebase
+    constructor(private afDB:AngularFireDatabase){}
 
     lugares:any = [
         {id:1 , plan:'gratuito',cercania: 1, distancia: 1,active: true,nombre:'floreria', 
@@ -29,6 +33,11 @@ export class LugaresService{
             return lugar.id == id;
             //regresamos el de la posicion en 0, o si no lo enccontro, entonces null
         })[0] || null;
+    }
+    //metodo publico para guardar informacion en firebase
+    public guardarLugar(lugar){
+        console.log(lugar);
+        this.afDB.database.ref('lugares/1').set(lugar);
     }
     
 }

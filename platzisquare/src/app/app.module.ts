@@ -11,6 +11,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './servicios/lugares.services';
+import { CrearComponent } from './crear/crear.component';
 
 //imports necesarios para trabajar con firebase
 import { AngularFireModule } from '@angular/fire';
@@ -21,15 +22,17 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
 
+
 //rutas de navegacion en angular 
 const appRoutes: Routes = [
   //cuando no hay ningun segmento despues del dominio por defecto abre el componente asignado
   {path:'',component: LugaresComponent},
-  //para agregar parametros a la ruta /:id/:action para dos parametros
+  //para agregar parametros a la ruta /:parametro1/:parametro2 para dos parametros
   {path:'detalle/:id',component: DetalleComponent},
   //para /lugares se carga el componente asignado
   {path:'lugares',component: LugaresComponent},
-  {path:'contacto',component: ContactoComponent}
+  {path:'contacto',component: ContactoComponent},
+  {path:'crear',component: CrearComponent}
 
 ];
 
@@ -42,6 +45,7 @@ const appRoutes: Routes = [
     ContarClicksDirectiva,
     DetalleComponent,
     ContactoComponent,
+    CrearComponent,
     LugaresComponent,
     AppComponent
   ],

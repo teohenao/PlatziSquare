@@ -6,6 +6,8 @@
   <div class="row">
     <div class="col-md-8">
       <h2>Lugares cercanos</h2>
+      <a class="btn btn-primary" routerLink="crear">Crear Nuevo Negocio</a>
+      <!--La diagonal en la ruta /crear es para que tome la raiz y no ocurra el problema de lugares/crear-->
       <ul class="list-group">
         <ng-container *ngFor="let lugar of lugares">
           <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
