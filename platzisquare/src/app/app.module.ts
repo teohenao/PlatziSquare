@@ -35,7 +35,8 @@ const appRoutes: Routes = [
   //para /lugares se carga el componente asignado
   {path:'lugares',component: LugaresComponent},
   {path:'contacto',component: ContactoComponent},
-  {path:'crear',component: CrearComponent}
+  //crear recibe el id para asi usar la misma vista en crear y actualizar
+  {path:'crear/:id',component: CrearComponent}
 
 ];
 

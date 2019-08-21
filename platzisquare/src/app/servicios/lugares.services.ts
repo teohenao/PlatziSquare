@@ -44,8 +44,23 @@ export class LugaresService{
         //le concatenamos el id, que generamos en crear.ts
         this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
     }
+    //metodo publico para editar informacion en firebase
+    public editarLugar(lugar){
+        console.log(lugar);
+        //le concatenamos el id, que generamos en crear.ts
+        this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    }
+    //metodo pubico para obtener las coordenadas de un lugar gracias a la direccion
     public obtenerGeoData(direccion){
         return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address='+direccion);
     }
+    //metodo publico para retornar un lugar mediante su id
+    public getLugar(id){
+        //esto nos regresa el lugar, ya en el componente es necesario inscribirse a el para obtener el resultado
+        //dependiendo la version es necesario el valuChanges, y el objec si es para obtener, arriba el ref es para introducir
+        return this.afDB.object('lugares/'+id).valueChanges();
+    }
+
+
     
 }
