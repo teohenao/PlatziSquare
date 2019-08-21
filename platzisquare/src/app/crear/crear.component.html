@@ -19,6 +19,15 @@
   <br/>
   <label>Plan</label>
   <input type="text" class="form-control" [(ngModel)]="lugar.plan">
+  <h3>Datos de direccion</h3>
+  <label>Calle</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.calle">
+  <br/>
+  <label>Ciudad</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.ciudad">
+  <br/>
+  <label>Pais</label>
+  <input type="text" class="form-control" [(ngModel)]="lugar.pais">
   <br/>
   <hr/>
   <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>

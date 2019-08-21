@@ -21,6 +21,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
+//import de http
+import { HttpClientModule } from'@angular/common/http';
+
 
 
 //rutas de navegacion en angular 
@@ -55,7 +58,8 @@ const appRoutes: Routes = [
     FormsModule,
     //anm module es necesario para trabajar con angular maps, en la pagina guian para general la clave, y activar el api tambien
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBu-0snnYFFYBztZsD-cxf03HYQsqU1pRo'
+      apiKey: 'AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0'
+     //Clave mia  AIzaSyBu-0snnYFFYBztZsD-cxf03HYQsqU1pRo
     }),
     //para que nuestro proyecto funcione con mas de un componente es necesario hacer este import
     RouterModule.forRoot(appRoutes),
@@ -63,6 +67,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    //Pare http
+    HttpClientModule,
     AppRoutingModule
   ],
   //aca se declaran los servicios

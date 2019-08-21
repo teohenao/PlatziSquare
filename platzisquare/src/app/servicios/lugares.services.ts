@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from '@angular/fire/database';
 
+//import necesario para http, geocordenadas
+import {HttpClient} from"@angular/common/http";
+
 //para que pueda ser inyectado en otros componentes, u otros componentes puedan ser inyectados en este servicio
 @Injectable()
 export class LugaresService{
 
     //inyectar modulo de firebase en nuestro servicio, adBD nos permite iteractuar con la base de datos de firebase
-    constructor(private afDB:AngularFireDatabase){}
+    constructor(private afDB:AngularFireDatabase, private http:HttpClient){}
 
     lugares:any = [
         {id:1 , plan:'gratuito',cercania: 1, distancia: 1,active: true,nombre:'floreria', 
@@ -40,6 +43,9 @@ export class LugaresService{
         console.log(lugar);
         //le concatenamos el id, que generamos en crear.ts
         this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    }
+    public obtenerGeoData(direccion){
+        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0&address='+direccion);
     }
     
 }
