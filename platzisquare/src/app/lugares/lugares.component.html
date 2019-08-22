@@ -16,11 +16,12 @@
             <li class="list-group-item">
               <!--lowecase - minuscula
                   uppercase - mayuscula
-                  date - fecha
+                  date - fecha.. parametros:'medium', fullDate,shortTime,mediumTime, en angular pipes se pueden buscar
+                  https://angular.io/api?type=pipe
                 -->
               id: {{lugar.id}} lugar: {{lugar.nombre | lowercase}}
               <br />
-              <small>Creado: {{lugar.id | date | uppercase }}</small>
+              <small>Creado: {{lugar.id | date:'medium' | uppercase }}</small>
             </li>
           </a>
         </ng-container>
