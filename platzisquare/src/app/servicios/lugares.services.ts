@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from '@angular/fire/database';
 
 //import necesario para http, geocordenadas
-import {HttpClient, HttpHeaders} from"@angular/common/http";
+import {HttpClient} from"@angular/common/http";
 
 //para que pueda ser inyectado en otros componentes, u otros componentes puedan ser inyectados en este servicio
 @Injectable()
@@ -28,12 +28,12 @@ export class LugaresService{
       //Metodo para obtener el arreglo lugares, buenas practicas
       public getLugares(){
           //que nos regrese lo de firebase en una lista
-          //regresar informacion de firebase por medio de sockets
-          //return this.afDB.list('lugares/');
-
-          //Regresar lugar por medio de Https
-          return this.http.get(this.API_ENDPOINT+'/lugares.json');
-
+          return this.afDB.list('lugares/');
+          /**
+           * formatear llamados tipo get
+           * returnthis.http.get(this.API_ENDPOINT+'/.json').pipe(
+                map(resultado => resultado['lugares']));
+           */
       }
       //metodo para obtener el lugar por determinado id, para detalle de un lugar, prametro id, que le pasara en componente
       public buscarLugar(id){
@@ -45,16 +45,9 @@ export class LugaresService{
     }
     //metodo publico para guardar informacion en firebase
     public guardarLugar(lugar){
-        //console.log(lugar);
+        console.log(lugar);
         //le concatenamos el id, que generamos en crear.ts
-        //este seria configurado como Guardar lugar por medio de Sockets
-        //this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
-
-        //Guardar lugar por http
-        //declarar header , el content-type es lo que entiende javascript
-        const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post(this.API_ENDPOINT + '/lugares.json', lugar,
-                              {headers: headers}).subscribe();
+        this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
     }
     //metodo publico para editar informacion en firebase
     public editarLugar(lugar){
@@ -72,8 +65,6 @@ export class LugaresService{
         //dependiendo la version es necesario el valuChanges, y el objec si es para obtener, arriba el ref es para introducir
         return this.afDB.object('lugares/'+id).valueChanges();
     }
-
-    API_ENDPOINT = 'https://platzisquare-250000.firebaseio.com';
 
 
     
