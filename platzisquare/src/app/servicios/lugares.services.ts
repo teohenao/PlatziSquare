@@ -28,7 +28,12 @@ export class LugaresService{
       //Metodo para obtener el arreglo lugares, buenas practicas
       public getLugares(){
           //que nos regrese lo de firebase en una lista
-          return this.afDB.list('lugares/');
+          //regresar informacion de firebase por medio de sockets
+          //return this.afDB.list('lugares/');
+
+          //Regresar lugar por medio de Https
+          return this.http.get(this.API_ENDPOINT+'/lugares.json');
+
       }
       //metodo para obtener el lugar por determinado id, para detalle de un lugar, prametro id, que le pasara en componente
       public buscarLugar(id){
