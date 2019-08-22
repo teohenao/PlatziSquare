@@ -23,6 +23,8 @@ import { environment } from 'src/environments/environment';
 
 //import de http
 import { HttpClientModule } from'@angular/common/http';
+//import de pipe creado
+import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 
 
 
@@ -51,6 +53,8 @@ const appRoutes: Routes = [
     ContactoComponent,
     CrearComponent,
     LugaresComponent,
+    //importamos los pipesCreados
+    LinkifystrPipe,
     AppComponent
   ],
   imports: [

@@ -12,18 +12,20 @@
         <ng-container *ngFor="let lugar of lugares">
           <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
           <!--query params para los parametros y le pasa por decir asi un permiso para ver:view, editar:edit-->
-          <a routerLink="/crear/{{lugar.id}}">
             <li class="list-group-item">
+                <a routerLink="/crear/{{lugar.id}}">
               <!--lowecase - minuscula
                   uppercase - mayuscula
                   date - fecha.. parametros:'medium', fullDate,shortTime,mediumTime, en angular pipes se pueden buscar
                   https://angular.io/api?type=pipe
                 -->
-              id: {{lugar.id}} lugar: {{lugar.nombre | lowercase}}
+              <h3>{{lugar.nombre | lowercase}}</h3>  </a>
               <br />
               <small>Creado: {{lugar.id | date:'medium' | uppercase }}</small>
+              <!--Linkifyjs nos permite que si en un texto, existen vinculos, el los separa y hace clickeables
+              npm install linkifyjs-->
+              <p [innerHtml]="lugar.descripcion | LinkifystrPipe"></p>
             </li>
-          </a>
         </ng-container>
       </ul>
     </div>
