@@ -2,9 +2,6 @@
   <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>
 <hr />
-<div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animacionInicia($event)"
-(@contenedorAnimable.done)="animacionTermina($event)"></div>
-<a class="btn btn-default" (click)="animar()">Animar</a>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -16,13 +13,9 @@
           <!-- creamos un link que pasara el id, y redireccionara al router asignado en routing-->
           <!--query params para los parametros y le pasa por decir asi un permiso para ver:view, editar:edit-->
             <li class="list-group-item">
-                <a routerLink="/crear/{{lugar.id}}">
-              <!--lowecase - minuscula
-                  uppercase - mayuscula
-                  date - fecha.. parametros:'medium', fullDate,shortTime,mediumTime, en angular pipes se pueden buscar
-                  https://angular.io/api?type=pipe
-                -->
-              <h3>{{lugar.nombre | lowercase}}</h3>  </a>
+              <a routerLink="/crear/{{lugar.id}}">
+              <h3>{{lugar.nombre | lowercase}}
+              </h3><span class="glyphicon glyphicon-star pull-right" *ngIf="lugar.plan == 'pagado'">P</span></a>
               <br />
               <small>Creado: {{lugar.id | date:'medium' | uppercase }}</small>
               <!--Linkifyjs nos permite que si en un texto, existen vinculos, el los separa y hace clickeables
@@ -32,8 +25,14 @@
         </ng-container>
       </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" [@contenedorAnimable]="state">
       <h2>Destacados</h2>
+      <ng-container *ngFor="let lugar of lugares">
+            <div class="bg-warning padding" *ngIf="lugar.plan == 'pagado'">
+              <a routerLink="/crear/{{lugar.id}}"></a>
+              <p>{{lugar.descripcion}}</p>
+            </div>
+        </ng-container>
     </div>
   </div>
 </div>

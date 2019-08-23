@@ -8,26 +8,20 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   animations:[
     trigger('contenedorAnimable',[
       state('inicial',style({
-        opacity : 0 ,
-        backgroundColor:'green',
-        //coordenadas x,y,z,grados
-        transform: 'rotate3d(0,0,0,0)'
+        opacity : 0 
       })),
       state('final',style({
-        opacity : 1 ,
-        backgroundColor:'yellow',
-        //coordenadas x,y,z,grados
-        transform: 'rotate3d(5,10,20,30deg)'
+        opacity : 1 
       })),
       //params, entre que estados hace la animacion, y cuantos milisegundos pasan antes de que termine la animacion
-      transition('inicial => final',animate(1000)),
-      transition('final => inicial',animate(500)),
+      transition('inicial => final',animate(2000)),
+      transition('final => inicial',animate(1000)),
     ])
   ]
 })
 export class LugaresComponent {
   title = 'platzisquare';
-  state = 'final';
+  state = 'inicial';
 
   //variables para trabajar con map
   lat:number=4.5709817;
@@ -62,6 +56,7 @@ export class LugaresComponent {
       
       //lista de lugares es igual al parametro de respuesta a la promesa
       this.lugares = lugares;
+      this.state = 'final';
     });
   }
 }
