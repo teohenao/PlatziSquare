@@ -31,6 +31,8 @@ import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistroComponent } from './registro/registro.component';
 import { AutorizacionServices } from './servicios/autorizacion.services';
+//import Guard, seguridad de rutas
+import { MyGuard } from './servicios/my-guard.services';
 
 
 
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
   {path:'login',component: LoginComponent},
   {path:'registro',component: RegistroComponent},
   //crear recibe el id para asi usar la misma vista en crear y actualizar
-  {path:'crear/:id',component: CrearComponent}
+  //canActivate es para actuar el guardia 
+  {path:'crear/:id',component: CrearComponent, canActivate:[MyGuard]}
 
 ];
 
@@ -90,7 +93,7 @@ const appRoutes: Routes = [
     AppRoutingModule
   ],
   //aca se declaran los servicios
-  providers: [LugaresService,AutorizacionServices,AngularFireAuth],
+  providers: [LugaresService,AutorizacionServices,AngularFireAuth,MyGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

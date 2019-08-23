@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AutorizacionServices {
 
     constructor(private angularFireAuth:AngularFireAuth){
-
+        this.isLogged();
     }
 
     //funcion de flecha de login
@@ -34,6 +34,12 @@ export class AutorizacionServices {
             alert('un error ha ocurrido');
             console.log(error);
         })
+    }
+
+    //funcion para verificar si el usuario se encuentra loggeado en la aplicacion
+    public isLogged(){
+        //authState trae un identificador unico que solo existe cuando esta loggeado
+        return this.angularFireAuth.authState;
     }
 
 

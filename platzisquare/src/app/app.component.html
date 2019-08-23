@@ -19,7 +19,7 @@
             <a class="nav-link" routerLink="/contacto">Contacto</a>
           </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">
         <li ><a class="nav-link" routerLink="/login">Login</a></li>
         <li ><a class="nav-link" routerLink="/registro">Registro</a></li>
       </ul>
