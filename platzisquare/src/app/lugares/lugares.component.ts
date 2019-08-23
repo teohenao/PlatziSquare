@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LugaresService } from '../servicios/lugares.services';
-import { trigger, state, style } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-lugares',
@@ -18,7 +18,10 @@ import { trigger, state, style } from '@angular/animations';
         backgroundColor:'yellow',
         //coordenadas x,y,z,grados
         transform: 'rotate3d(5,10,20,30deg)'
-      }))
+      })),
+      //params, entre que estados hace la animacion, y cuantos milisegundos pasan antes de que termine la animacion
+      transition('inicial => final',animate(1000)),
+      transition('final => inicial',animate(500)),
     ])
   ]
 })
@@ -32,6 +35,12 @@ export class LugaresComponent {
 
   //variable de lugares
   lugares=null;
+
+  //funcion para disparar la animacion
+  animar(){
+    //si, es igual a final, entonces lo cambiamos a inicial y si no lo dejamos en final
+    this.state = (this.state == 'final') ? 'inicial' : 'final';
+  }
 
   //En el constructor metemos nuestros servicios
   constructor(private lugaresServices: LugaresService){
