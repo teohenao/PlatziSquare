@@ -10,8 +10,18 @@ export class AutorizacionServices {
 
     //funcion de flecha de login
     public login = ( email:string ,password:string ) => {
-        console.log('login');
+        this.angularFireAuth.auth.signInWithEmailAndPassword(email,password)
+        .then((response)=>{
+            alert('Usuario Loggeado con exito');
+            console.log(response);
+        })
+        .catch((error)=>{
+            alert('un error ha ocurrido');
+            console.log(error);
+        })
     }
+
+    
 
     //funcion de flecha de registro
     public registro = ( email:string ,password:string )=>{
@@ -25,6 +35,7 @@ export class AutorizacionServices {
             console.log(error);
         })
     }
+
 
 
 }
