@@ -12,6 +12,8 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './servicios/lugares.services';
 import { CrearComponent } from './crear/crear.component';
+import { LoginComponent } from './login/login.component';
+
 
 //imports necesarios para trabajar con firebase
 import { AngularFireModule } from '@angular/fire';
@@ -27,6 +29,8 @@ import { HttpClientModule } from'@angular/common/http';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 //import de animaciones
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistroComponent } from './registro/registro.component';
+import { AutorizacionServices } from './servicios/autorizacion.services';
 
 
 
@@ -40,6 +44,8 @@ const appRoutes: Routes = [
   //para /lugares se carga el componente asignado
   {path:'lugares',component: LugaresComponent},
   {path:'contacto',component: ContactoComponent},
+  {path:'login',component: LoginComponent},
+  {path:'registro',component: RegistroComponent},
   //crear recibe el id para asi usar la misma vista en crear y actualizar
   {path:'crear/:id',component: CrearComponent}
 
@@ -56,6 +62,8 @@ const appRoutes: Routes = [
     ContactoComponent,
     CrearComponent,
     LugaresComponent,
+    LoginComponent,
+    RegistroComponent,
     //importamos los pipesCreados
     LinkifystrPipe,
     AppComponent
@@ -82,7 +90,7 @@ const appRoutes: Routes = [
     AppRoutingModule
   ],
   //aca se declaran los servicios
-  providers: [LugaresService],
+  providers: [LugaresService,AutorizacionServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
