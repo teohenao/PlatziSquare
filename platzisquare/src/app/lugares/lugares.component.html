@@ -2,6 +2,7 @@
   <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>
 <hr />
+<div id="cuadrado" [@contenedorAnimable]="state"></div>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -24,7 +25,7 @@
               <small>Creado: {{lugar.id | date:'medium' | uppercase }}</small>
               <!--Linkifyjs nos permite que si en un texto, existen vinculos, el los separa y hace clickeables
               npm install linkifyjs-->
-              <p [innerHtml]="lugar.descripcion | LinkifystrPipe"></p>
+              <p>{{lugar.descripcion}}</p>
             </li>
         </ng-container>
       </ul>

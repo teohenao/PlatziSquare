@@ -25,6 +25,9 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from'@angular/common/http';
 //import de pipe creado
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
+//import de animaciones
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -74,6 +77,8 @@ const appRoutes: Routes = [
     AngularFireStorageModule,
     //Pare http
     HttpClientModule,
+    //animaciones angular
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   //aca se declaran los servicios
