@@ -8,8 +8,14 @@ import { AutorizacionServices } from '../servicios/autorizacion.services';
 export class RegistroComponent {
 
   constructor(private autorizacionService:AutorizacionServices){
-    this.autorizacionService.registro('email','password','password2');
 
+  }
+
+  registro:any={};
+
+  //metodo para registrar un usuario por medio de email y clave, recordar habilitar inicio sesion en firebase
+  registrar(){
+    this.autorizacionService.registro(this.registro.email,this.registro.password);
   }
  
  

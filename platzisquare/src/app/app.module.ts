@@ -90,7 +90,7 @@ const appRoutes: Routes = [
     AppRoutingModule
   ],
   //aca se declaran los servicios
-  providers: [LugaresService,AutorizacionServices],
+  providers: [LugaresService,AutorizacionServices,AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
