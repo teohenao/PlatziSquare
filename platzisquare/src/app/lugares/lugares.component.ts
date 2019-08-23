@@ -41,6 +41,15 @@ export class LugaresComponent {
     //si, es igual a final, entonces lo cambiamos a inicial y si no lo dejamos en final
     this.state = (this.state == 'final') ? 'inicial' : 'final';
   }
+  //Los callbacks son muy utiles para saber que esta pasando con la animacion y poder reaccionar basado en ello
+  animacionInicia(e){
+    console.log('iniciado');
+    console.log(e);
+  }
+  animacionTermina(e){
+    console.log('terminado');
+    console.log(e);
+  }
 
   //En el constructor metemos nuestros servicios
   constructor(private lugaresServices: LugaresService){
