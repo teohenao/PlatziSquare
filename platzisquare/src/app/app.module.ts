@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { ResaltarDirectiva } from './directivas/resaltar.directiva';
 import { ContarClicksDirectiva } from './directivas/contar-clicks.directiva';
@@ -89,6 +89,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     //animaciones angular
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule
   ],
   //aca se declaran los servicios

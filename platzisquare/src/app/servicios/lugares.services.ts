@@ -31,7 +31,7 @@ export class LugaresService{
           return this.afDB.list('lugares/');
           /**
            * formatear llamados tipo get
-           * returnthis.http.get(this.API_ENDPOINT+'/.json').pipe(
+           * return this.http.get(this.API_ENDPOINT+'/.json').pipe(
                 map(resultado => resultado['lugares']));
            */
       }
