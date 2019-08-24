@@ -24,6 +24,8 @@
         <li ><a class="nav-link" routerLink="/registro">Registro</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
+        <!--el If es para esperar mientras exista, que muestre todo lo otro mientras este esta disponible-->
+        <li *ngIf="loggedUser"><a class="nav-link">{{loggedUser}}</a></li>
         <li ><a class="nav-link" routerLink="#" (click)="logout()">Logout</a></li>
       </ul>
     </div>

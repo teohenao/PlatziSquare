@@ -63,6 +63,11 @@ export class AutorizacionServices {
         this.angularFireAuth.auth.signOut();
         this.router.navigate(['lugares']);
     }
+
+    //devuelve el usuario que esta loggeado
+    public getUser(){
+        return this.angularFireAuth.auth;
+    }
     
 
 
