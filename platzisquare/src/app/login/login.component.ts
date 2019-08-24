@@ -15,5 +15,10 @@ export class LoginComponent {
   login(){
     this.autorizacionService.login(this.loginParams.email,this.loginParams.password);
   }
+
+  facebookLogin(){
+    //no se le pasa ningun parametro por que de eso se encarga firebase 
+    this.autorizacionService.facebookLogin();
+  }
  
 }

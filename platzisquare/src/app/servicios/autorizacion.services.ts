@@ -1,12 +1,27 @@
 import {Injectable} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
+
 
 @Injectable()
 export class AutorizacionServices {
 
-    constructor(private angularFireAuth:AngularFireAuth){
+    constructor(private angularFireAuth:AngularFireAuth,private router: Router){
         this.isLogged();
     }
+    //funcion para registro con facebook
+    public facebookLogin(){
+        return this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then((result)=>{
+            console.log(result);
+            alert('Usuario loggeado con facebook');
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    }
+    
 
     //funcion de flecha de login
     public login = ( email:string ,password:string ) => {
@@ -14,6 +29,7 @@ export class AutorizacionServices {
         .then((response)=>{
             alert('Usuario Loggeado con exito');
             console.log(response);
+            this.router.navigate(['lugares']);
         })
         .catch((error)=>{
             alert('un error ha ocurrido');
@@ -29,6 +45,7 @@ export class AutorizacionServices {
         .then((response)=>{
             alert('Usuario registrado con exito');
             console.log(response);
+            this.router.navigate(['lugares']);
         })
         .catch((error)=>{
             alert('un error ha ocurrido');
@@ -42,6 +59,11 @@ export class AutorizacionServices {
         return this.angularFireAuth.authState;
     }
 
+    public logout(){
+        this.angularFireAuth.auth.signOut();
+        this.router.navigate(['lugares']);
+    }
+    
 
 
 }
