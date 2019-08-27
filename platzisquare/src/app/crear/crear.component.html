@@ -32,7 +32,7 @@
       </div>
     </div>
   <label>Calle</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.calle">
+  <input type="text" class="form-control" [ngModel]="lugar.calle | slice:0:15" (ngModelChange)="lugar.calle=$event">
   <br/>
   <label>Ciudad</label>
   <input type="text" class="form-control" [(ngModel)]="lugar.ciudad">
